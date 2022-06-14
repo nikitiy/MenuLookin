@@ -14,21 +14,21 @@
     	<h2 class="menu_lbl">Меню</h2>
 
     	<div class="nav_bar">
-    		<div id="nav_1" onclick="Food_btn()">
+    		<div id="nav_1" onclick="change('#food')">
     			<div>
     				<img src="img/food.png"/>
     			</div>
     			<p>Кухня</p>
     		</div>
 
-    		<div id="nav_2" onclick="Bar_btn()">
+    		<div id="nav_2" onclick="change('#bar')">
     			<div>
     				<img src="img/cocktail.png"/>
     			</div>
     			<p>Бар</p>
     		</div>
 
-    		<div id="nav_3" onclick="">
+    		<div id="nav_3" onclick="change('#off-season')">
     			<div>
     				<img src="img/season.png"/>
     			</div>
@@ -36,8 +36,9 @@
     		</div>
     	</div>
 
-    	<div class="menu_list">
-    		<p id="food">Салаты</p>
+		<!-- Food -->
+    	<div class="menu_list" id="food">
+    		<p>Салаты</p>
 
     		<div>
     			<img src="img/salad_1.png"/>
@@ -1011,12 +1012,13 @@
     				<p class="price">300</p>
     			</div>
     		</div>
+		
+		</div>
 
-
-
-    		<!--БАР-->
-
-    		<p id="bar">Миксдринки</p>
+		<!--БАР-->
+		<div class="menu_list" id="bar">
+    		
+    		<p>Миксдринки</p>
 
     		<div>
     			<img src="img/fish.png"/>
@@ -2842,17 +2844,12 @@
     		</div>
 
     	</div>
+		<div class="menu_list" id="off-season">
+
+		</div>
     </div>
 
-	<script language="JavaScript">
-		function Food_btn(){
-			const food = document.getElementById('food');
-			food.scrollIntoView({behavior:"smooth"});
-		}
-		function Bar_btn(){
-			const food = document.getElementById('bar');
-			bar.scrollIntoView({behavior:"smooth"});
-		}
-	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

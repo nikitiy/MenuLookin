@@ -70,18 +70,6 @@
 	opacity: 60%;
 }
 
-/* JS 
-
-.nav_bar div#nav_1 div img {
-	opacity: 100%;
-}
-
-.nav_bar div#nav_1 div {
-	background: #eae2b7
-}
-
- JS */
-
 
 .menu_list {
 	position: absolute;
@@ -147,4 +135,12 @@
 	margin-left: 3%;
 	color: #303030;
 	font-size: 2vh;
+}
+
+#food {
+	display: flex;
+}
+
+#bar {
+	display: none;
 }
