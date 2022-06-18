@@ -70,7 +70,6 @@
 	opacity: 60%;
 }
 
-
 .menu_list {
 	position: absolute;
 	display: flex;
@@ -90,7 +89,7 @@
 
 .menu_list >div {
 	display: flex;
-	height: 20vw;
+	height: 12vh;
 	width: 90%;
 	align-self: center;
 	margin-bottom: 10px;
@@ -106,8 +105,7 @@
 }
 
 .menu_list div img {
-	height: 70%;
-	width: 10vh;
+	width: 8vh;
 	align-self: center;
 	margin-left: 5%;
 }
@@ -137,10 +135,11 @@
 	font-size: 2vh;
 }
 
-#food {
-	display: flex;
-}
-
-#bar {
-	display: none;
+.description{
+	margin-top: 6%;
+	margin-right: 3%;
+	visibility: hidden;
+	opacity: 0;
+	color: #303030
+	font-size: 1.8vh;
 }

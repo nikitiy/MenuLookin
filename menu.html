@@ -5,642 +5,758 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Меню</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <base href="~/" />
+    <link rel="stylesheet" type="text/css" href="../style.css">
+
+   	<script language="JavaScript">
+
+        function Resize()
+        {
+            for(let i = 0; i < 3; i++)
+            {
+                document.querySelectorAll('.nav_bar > div div')[i].style.width = document.querySelectorAll('.nav_bar > div div')[i].scrollHeight + "px";
+                document.querySelectorAll('.nav_bar > div')[i].style.width = document.querySelectorAll('.nav_bar > div')[i].scrollHeight + "px";   
+            }
+        }   
+
+        function Food_btn()
+		{
+        	const food = document.getElementById('food');
+        	food.scrollIntoView({behavior:"smooth"});   
+        }
+
+		function Bar_btn()
+		{
+        	const bar = document.getElementById('bar');
+        	bar.scrollIntoView({behavior:"smooth"});
+        }
+
+        function Season_btn()
+		{
+        	const season = document.getElementById('season');
+        	season.scrollIntoView({behavior:"smooth"});
+        }
+
+        function Descript()
+        {
+        	this.d = function () 
+        	{
+        		for(let i = 0; i < 276; i++)
+        		{
+                    try
+                    {
+        		        document.querySelectorAll('.menu_list > div')[i].style.height = "12vh";
+        		        document.querySelectorAll('.menu_list > div')[i].style.transition = "0.5s";
+        		        document.querySelectorAll('.menu_list > div div p:last-child')[i].style.visibility = "hidden";
+                        document.querySelectorAll('.menu_list > div div p:last-child')[i].style.opacity = "0";
+                    }
+                    catch(error){}
+        		}
+
+        		this.style.height = this.querySelector('div').scrollHeight + 15 + "px";
+        		this.querySelector('div p:last-child').style.visibility = "visible";
+                this.querySelector('div p:last-child').style.opacity = "1";
+          		this.querySelector('div p:last-child').style.transition = "0.5s";
+    		}
+        }
+
+	</script>
+
 </head>
 
-<body>
+<body onload="Resize()">
     <div class="main_frame">
 
     	<h2 class="menu_lbl">Меню</h2>
 
     	<div class="nav_bar">
-    		<div id="nav_1" onclick="change('#food')">
+
+    		<div id="nav_3" onclick="Season_btn()">
     			<div>
-    				<img src="img/food.png"/>
+    				<img src="../season.png"/>
+    			</div>
+    			<p>Сезон</p>
+    		</div>
+
+    		<div id="nav_1" onclick="Food_btn()">
+    			<div>
+    				<img src="../food.png"/>
     			</div>
     			<p>Кухня</p>
     		</div>
 
-    		<div id="nav_2" onclick="change('#bar')">
+    		<div id="nav_2" onclick="Bar_btn()">
     			<div>
-    				<img src="img/cocktail.png"/>
+    				<img src="../cocktail.png"/>
     			</div>
     			<p>Бар</p>
     		</div>
-
-    		<div id="nav_3" onclick="change('#off-season')">
-    			<div>
-    				<img src="img/season.png"/>
-    			</div>
-    			<p>Сезон</p>
-    		</div>
     	</div>
 
-		<!-- Food -->
-    	<div class="menu_list" id="food">
-    		<p>Салаты</p>
+    	<div class="menu_list">
+    		<p id="season">Сезонное предложение</p>
 
-    		<div>
-    			<img src="img/salad_1.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_1.png"/>
 
     			<div>
     				<p class="name">Тайский салат c ростбифом</p>
     				<p class="weight">230г</p>
     				<p class="price">450</p>
+    				<p class="description">Салат с ростбифом, маринованными овощами и куриным яйцом</p>
     			</div>
     		</div>
 
-
-    		<div>
-    			<img src="img/salad_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_2.png"/>
 
     			<div>
     				<p class="name">Карпачо из говядины</p>
     				<p class="weight">120г</p>
     				<p class="price">350</p>
+    				<p class="description">Карпаччо из мраморной говядины с рукколой, бальзамическим уксусом и сыром пармезан</p>
     			</div>
     		</div>
 
-
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Сельдь под шубой</p>
     				<p class="weight">150г</p>
     				<p class="price">250</p>
+    				<p class="description">---</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
-
-    			<div>
-    				<p class="name">Цезарь с курицей</p>
-    				<p class="weight">220г</p>
-    				<p class="price">450</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/fish.png"/>
-
-    			<div>
-    				<p class="name">Цезарь с креветками</p>
-    				<p class="weight">200г</p>
-    				<p class="price">550</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/fish.png"/>
-
-    			<div>
-    				<p class="name">Моцарелла капрезе</p>
-    				<p class="weight">240г</p>
-    				<p class="price">550</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/fish.png"/>
-
-    			<div>
-    				<p class="name">Нисуаз с тунцом</p>
-    				<p class="weight">225г</p>
-    				<p class="price">350</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/fish.png"/>
-
-    			<div>
-    				<p class="name">Салат греческий</p>
-    				<p class="weight">200г</p>
-    				<p class="price">350</p>
-    			</div>
-    		</div>
-
-    		<p>Супы</p>
-
-    		<div>
-    			<img src="img/sup.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sup.png"/>
 
     			<div>
     				<p class="name">Куриный бульон с лапшой</p>
     				<p class="weight">330/50г</p>
     				<p class="price">250</p>
+    				<p class="description">Бульон с яичной лапшой и куриным яйцом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sup.png"/>
-
-    			<div>
-    				<p class="name">Том ям</p>
-    				<p class="weight">330/40г</p>
-    				<p class="price">500</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/sup.png"/>
-
-    			<div>
-    				<p class="name">Борщ с рваной говядиной</p>
-    				<p class="weight">350/50/30г</p>
-    				<p class="price">350</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/sup.png"/>
-
-    			<div>
-    				<p class="name">Картофельный крем-суп</p>
-    				<p class="weight">300г</p>
-    				<p class="price">350</p>
-    			</div>
-    		</div>
-
-    		<p>Горячее</p>
-
-    		<div>
-    			<img src="img/steak.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../steak.png"/>
 
     			<div>
     				<p class="name">Стейк на сковороде</p>
     				<p class="weight">260г</p>
     				<p class="price">750</p>
+    				<p class="description">Стейк из мраморной говядины с картофелем по-деревенски, сырным соусом, халапеньо и луком фри</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/baklazhan.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../baklazhan.png"/>
 
     			<div>
     				<p class="name">Баклажаны в соусе терияки</p>
     				<p class="weight">300г</p>
     				<p class="price">350</p>
+    				<p class="description">Баклажаны в соусе терияки с розовыми томатами и кинзой</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
-
-    			<div>
-    				<p class="name">Курица в азиатском стиле</p>
-    				<p class="weight">345г</p>
-    				<p class="price">500</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/cutlet.png"/>
-
-    			<div>
-    				<p class="name">Котлеты с картофельным пюре</p>
-    				<p class="weight">180/160г</p>
-    				<p class="price">350</p>
-    			</div>
-    		</div>
-
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../steak_sh.png"/>
 
     			<div>
     				<p class="name">Шницель с соусом BBQ</p>
     				<p class="weight">175/70/50г</p>
     				<p class="price">500</p>
+    				<p class="description">Свиной шницель с соусом BBQ и картофелем по-деревески</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<!--Еда-->
+
+    		<p id="food">Салаты</p>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_3.png"/>
+
+    			<div>
+    				<p class="name">Цезарь с курицей</p>
+    				<p class="weight">220г</p>
+    				<p class="price">450</p>
+    				<p class="description">Сочные листья салата романо и айсберга, заправленные классическим соусом цезарь, подаются с маринованной в травах куриной грудкой, сыром пармезан, и крутонами из багета</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_4.png"/>
+
+    			<div>
+    				<p class="name">Цезарь с креветками</p>
+    				<p class="weight">200г</p>
+    				<p class="price">550</p>
+    				<p class="description">Сочные листья салата романо и айсберга, заправленные классическим соусом цезарь, подаются с тигровыми креветками</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_5.png"/>
+
+    			<div>
+    				<p class="name">Моцарелла капрезе</p>
+    				<p class="weight">240г</p>
+    				<p class="price">550</p>
+    				<p class="description">Классический итальянский салат с сыром моцарелла, томатами, соусом песто и кедровыми орешками</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_6.png"/>
+
+    			<div>
+    				<p class="name">Нисуаз с тунцом</p>
+    				<p class="weight">225г</p>
+    				<p class="price">350</p>
+    				<p class="description">Салат с беби картофелем, перепелиным яйцом, салатом романо, консервированным тунцом и горчичной заправкой</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../salad_7.png"/>
+
+    			<div>
+    				<p class="name">Салат греческий</p>
+    				<p class="weight">200г</p>
+    				<p class="price">350</p>
+    				<p class="description">Греческий салат с овощами, сыром Фета и фирменной заправкой</p>
+    			</div>
+    		</div>
+
+    		<p>Супы</p>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sup_1.png"/>
+
+    			<div>
+    				<p class="name">Том ям</p>
+    				<p class="weight">330/40г</p>
+    				<p class="price">500</p>
+    				<p class="description">Классический тайский суп с куриной грудкой, креветками и мидиями, подается с рисом</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sup_2.png"/>
+
+    			<div>
+    				<p class="name">Борщ с рваной говядиной</p>
+    				<p class="weight">350/50/30г</p>
+    				<p class="price">350</p>
+    				<p class="description">Наш фирменный борщ с пряной рваной говядиной, подается со сметаной</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sup_3.png"/>
+
+    			<div>
+    				<p class="name">Картофельный крем-суп</p>
+    				<p class="weight">300г</p>
+    				<p class="price">350</p>
+    				<p class="description">Картофельный крем-суп с беконом и гренками из багета</p>
+    			</div>
+    		</div>
+
+    		<p>Горячее</p>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../chicken.png"/>
+
+    			<div>
+    				<p class="name">Курица в азиатском стиле</p>
+    				<p class="weight">345г</p>
+    				<p class="price">500</p>
+    				<p class="description">Маринованное куриное филе в соусе тандури, подается с жареным японским рисом в маринаде из трех азиатских соусов</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
+
+    			<div>
+    				<p class="name">Котлеты с картофельным пюре</p>
+    				<p class="weight">180/160г</p>
+    				<p class="price">350</p>
+    				<p class="description">Сочные домашние котлеты с картофельным пюре и луком фри</p>
+    			</div>
+    		</div>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../steak_1.png"/>
 
     			<div>
     				<p class="name">Стейк из лосося в азиатском соусе</p>
     				<p class="weight">260г</p>
     				<p class="price">1100</p>
+    				<p class="description">Запеченный стейк из лосося в азиатском соусе, подается с брокколи</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../beef.png"/>
 
     			<div>
     				<p class="name">Медальон из говядины с перечным соусом</p>
     				<p class="weight">250г</p>
     				<p class="price">900</p>
+    				<p class="description">Медальон из говяжьей вырезки, подается с кенийской фасолью, завернутой в бекон и перечным соусом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../steak_2.png"/>
 
     			<div>
     				<p class="name">Скоблянка мясная</p>
     				<p class="weight">320г</p>
     				<p class="price">550</p>
+    				<p class="description">Старинное русское блюдо из двух видов мяса, запеченым картофелем и сыром Гауда</p>
     			</div>
     		</div>
 
     		<p>Холодные закуски</p>
 
-    		<div>
-    			<img src="img/sausage_1.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sausage_1.png"/>
 
     			<div>
     				<p class="name">Ассорти колбас</p>
     				<p class="weight">530г</p>
     				<p class="price">2 200</p>
+    				<p class="description">Ассорти итальянских колбас, украшается рукколой, заправленной соусом цитронель</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fruits_1.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fruits_1.png"/>
 
     			<div>
     				<p class="name">Фруктовая тарелка</p>
     				<p class="weight">1200г</p>
     				<p class="price">900</p>
+    				<p class="description">Фруктовая тарелка из сезонных фруктов, укращенная листьями мяты</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fruits_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fruits_2.png"/>
 
     			<div>
     				<p class="name">Фруктовая ваза</p>
     				<p class="weight">3500г</p>
     				<p class="price">2500</p>
+    				<p class="description">Ваза из сезонных фруктов, отлично подходит для большой компании</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sausage_2.png"/>
 
     			<div>
     				<p class="name">Доска итальянских закусок</p>
     				<p class="weight">220г</p>
     				<p class="price">950</p>
+    				<p class="description">Классические итальянские колбасы, подаются с багетом, обжаренном на гриле и мини-перцем, фаршированным сыром, украшенные маслинами, оливками и каперсами на ветке</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cheese.png"/>
 
     			<div>
     				<p class="name">Сырная тарелка</p>
     				<p class="weight">310г</p>
     				<p class="price">900</p>
+    				<p class="description">Ассорти сыров, подаётся с натуральным мёдом, цукатами и грецким орехом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../vegetables.png"/>
 
     			<div>
     				<p class="name">Овощное ассорти</p>
     				<p class="weight">230г</p>
     				<p class="price">450</p>
+    				<p class="description">Ассорти свежих сезонных овощей, украшенные зеленым луком и кинзой</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../waffle.png"/>
 
     			<div>
     				<p class="name">Бельгийская вафля с лососем</p>
     				<p class="weight">150г</p>
     				<p class="price">350</p>
+    				<p class="description">Бельгийская картофельная вафля с лососем, рукколой и кремчизом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../waffles.png"/>
 
     			<div>
     				<p class="name">Бельгийская вафля с ростбифом</p>
     				<p class="weight">190г</p>
     				<p class="price">350</p>
+    				<p class="description">Бельгийская картофельная вафля с ростбифом, рукколой и кремчизом</p>
     			</div>
     		</div>
 
 
     		<p>Паста</p>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pasta_1.png"/>
 
     			<div>
     				<p class="name">Спагетти Карбонара</p>
     				<p class="weight">320г</p>
     				<p class="price">450</p>
+    				<p class="description">Спагетти с кусочками бекона, белым вином и сливками, украшается сыром пармезан и томатом черри</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pasta_2.png"/>
 
     			<div>
     				<p class="name">Ризотто с грибами</p>
     				<p class="weight">305г</p>
     				<p class="price">450</p>
+    				<p class="description">Ризотто с белыми грибами, шампиньонами и зеленью, украшается сыром пармезан, томатом черри и маринованными опятами</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pasta_3.png"/>
 
     			<div>
     				<p class="name">Фетучини с морепродуктами</p>
     				<p class="weight">220г</p>
     				<p class="price">550</p>
+    				<p class="description">Паста с морепродуктами и томатами</p>
     			</div>
     		</div>
 
     		<p>Горячие закуски</p>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../falafel.png"/>
 
     			<div>
     				<p class="name">Фалафель</p>
     				<p class="weight">290/30г</p>
     				<p class="price">350</p>
+    				<p class="description">Фалафель скрученный в лепешке тортилья с миксом салатов, свежими овощами, перчиками халапеньо, и хумусом, подается с соусом гуакамоле</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../sandw.png"/>
 
     			<div>
     				<p class="name">Клаб сэндвич с курицей</p>
     				<p class="weight">250г</p>
     				<p class="price">400</p>
+    				<p class="description">Наш фирменный сендвич с куриной грудкой, овощами и беконом, с соусом айоли и ветчиной</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../suluguni.png"/>
 
     			<div>
     				<p class="name">Жареный сыр сулугуни</p>
     				<p class="weight">280г</p>
     				<p class="price">400</p>
+    				<p class="description">Жареный сыр сулугуни, подается с салатом из зелени, бакинских томатов, красного лука, каперсов на ветке, заправленным бальзамическим соусом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../grenki.png"/>
 
     			<div>
     				<p class="name">Чесночные гренки</p>
     				<p class="weight">185/30г</p>
     				<p class="price">250</p>
+    				<p class="description">Гренки из черного хлеба с зеленью, сыром пармезан, подаются с чесночным соусом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../wings.png"/>
 
     			<div>
     				<p class="name">Куриные крылья Баффало</p>
     				<p class="weight">350/50г</p>
     				<p class="price">400</p>
+    				<p class="description">Панированные куриные крылья в пряностях, подаются в обилии нашего фирменного соуса Баффало</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../kes.png"/>
 
     			<div>
     				<p class="name">Кесадилья с курицей</p>
     				<p class="weight">220/90г</p>
     				<p class="price">450</p>
+    				<p class="description">Две мини кесадильи с курицей и овощами. Подаются с гуакамоле, сметаной и соусом сальса</p>
     			</div>
     		</div>
 
     		<p>Бургеры</p>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../burger_1.png"/>
 
     			<div>
     				<p class="name">Бургер BBQ</p>
     				<p class="weight">380г</p>
     				<p class="price">440</p>
+    				<p class="description">Бургер с сочной говяжьей котлетой, салатом айсберг, свежими томатами, маринованным огурцом и нашим фирменным соусом BBQ</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../burger_2.png"/>
 
     			<div>
     				<p class="name">Бургер чипотл</p>
     				<p class="weight">360г</p>
     				<p class="price">390</p>
+    				<p class="description">Острый бургер с сочной говяжьей котлетой, салатом айсберг, свежими томатами, белым луком и маринованными огурцами</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../burger_3.png"/>
 
     			<div>
     				<p class="name">Блю чиз бургер</p>
     				<p class="weight">350г</p>
     				<p class="price">490</p>
+    				<p class="description">Бургер с сочной говяжьей котлетой, беконом и соусом Блю Чиз</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/sausage_2.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../burger_4.png"/>
 
     			<div>
     				<p class="name">Чизбургер</p>
     				<p class="weight">380г</p>
     				<p class="price">550</p>
+    				<p class="description">Бургер с соусом из сыра Чеддер</p>
     			</div>
     		</div>
 
     		<p>Пицца</p>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza.png"/>
 
     			<div>
     				<p class="name">Пицца Маргарита</p>
     				<p class="weight">450г</p>
     				<p class="price">550</p>
+    				<p class="description">Фирменный томатный соус, моцарелла, пармезан, розовые томаты, базилик</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-2.png"/>
 
     			<div>
     				<p class="name">Грибная пицца</p>
     				<p class="weight">480г</p>
     				<p class="price">450</p>
+    				<p class="description">Нежный сливочный соус, моцарелла, белые грибы, шампиньоны, вешенки, салат, руккола и капперсы</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-3.png"/>
 
     			<div>
     				<p class="name">Пицца четыре сыра</p>
     				<p class="weight">450г</p>
     				<p class="price">550</p>
+    				<p class="description">Сливочный сыр, моцарелла, пармезан, горгонзола, сулугуни, орегано</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-8.png"/>
 
     			<div>
     				<p class="name">Пицца деревенская</p>
     				<p class="weight">615г</p>
     				<p class="price">650</p>
+    				<p class="description">Наша фирменная пицца с томатами, маринованными корнишонами, деревенским картофелем, охотничьими колбасками и опятами</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-5.png"/>
 
     			<div>
     				<p class="name">Пицца ветчина с беконом</p>
     				<p class="weight">450г</p>
     				<p class="price">450</p>
+    				<p class="description">Томатный соус, моцарелла, ветчина, бекон, перец халапеньо, болгарский перец, красный лук, итальянские травы</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-6.png"/>
 
     			<div>
     				<p class="name">Гавайская пицца</p>
     				<p class="weight">625г</p>
     				<p class="price">650</p>
+    				<p class="description">Пицца с куриным филе, ананасами, перчиками халапеньо и ветчиной</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-7.png"/>
 
     			<div>
     				<p class="name">Пицца BBQ</p>
     				<p class="weight">680г</p>
     				<p class="price">750</p>
+    				<p class="description">Пицца с пряной рваной говядиной и нашим фирменным соусом BBQ, свежими томатами, луком фри и перчиками халапеньо</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../pizza-4.png"/>
 
     			<div>
     				<p class="name">Пицца Пепперони</p>
     				<p class="weight">400г</p>
     				<p class="price">500</p>
+    				<p class="description">Томатный соус, пепперони, моцарелла, орегано</p>
     			</div>
     		</div>
 
     		<p>Роллы</p>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл в стружке тунца</p>
     				<p class="weight">155/50г</p>
     				<p class="price">350</p>
+    				<p class="description">Ролл с копченым угрем, свежим огурцом, творожным сыром в стружке тунца</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл цезарь темпура</p>
     				<p class="weight">215/50г</p>
     				<p class="price">300</p>
+    				<p class="description">Ролл с куриным филе, с салатом айсберг, томатами и классическим соусом цезарь</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Горячий ролл Филадельфия</p>
     				<p class="weight">190/50г</p>
     				<p class="price">500</p>
+    				<p class="description">Ролл с лососем, творожным сыром, панированный в кляре и сухарях</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Калифорния с крабом</p>
     				<p class="weight">180/50г</p>
     				<p class="price">650</p>
+    				<p class="description">Камчатский краб, авокадо, икра тобико, японскоий майонез</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Канада ролл</p>
     				<p class="weight">215/50г</p>
     				<p class="price">650</p>
+    				<p class="description">Копченый угорь, авокадо, огурец, сливочный сыр, соус унаги, кунжут</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Классический ролл Филадельфия</p>
     				<p class="weight">220/50г</p>
     				<p class="price">550</p>
+    				<p class="description">Филе лосося, авокадо, огурец, сливочный сыр</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с камчатским крабом</p>
     				<p class="weight">180/50г</p>
     				<p class="price">650</p>
+    				<p class="description">Камчатский краб, авокадо, икра тобико, рисовое тесто</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с огурцом</p>
     				<p class="weight">110/50г</p>
     				<p class="price">150</p>
+    				<p class="description">---</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Запеченый ролл с мидиями</p>
     				<p class="weight">180/50г</p>
     				<p class="price">250</p>
+    				<p class="description">Ролл с японским омлетом, свежим огурцом и мидиями под розовым соусом</p>
     			</div>
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с авокадо</p>
@@ -650,7 +766,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с лососем</p>
@@ -660,7 +776,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с копченым угрем</p>
@@ -670,7 +786,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Ролл с тунцом</p>
@@ -681,50 +797,54 @@
 
     		<p>Сеты</p>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Сет №1</p>
     				<p class="weight">330/85г</p>
     				<p class="price">800</p>
+    				<p class="description">Ролл с огурцом, ролл с авокадо, ролл с лососем</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Сет №2</p>
     				<p class="weight">670/85г</p>
     				<p class="price">1700</p>
+    				<p class="description">Ролл цезарь темпура, горячий ролл Филадельфия, теплый ролл с крабом, суши с лососем, суши с тунцом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Сет №3</p>
     				<p class="weight">850/85г</p>
     				<p class="price">2500</p>
+    				<p class="description">Ролл Калифорния, ролл Филадельфия, ролл в стружке тунца, Канада ролл, суши с лососем, суши с тунцом, суши краб</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Сет №4</p>
     				<p class="weight">1000/170г</p>
     				<p class="price">3500</p>
+    				<p class="description">Ролл Калифорния, ролл Филадельфия, Канада ролл, Горячий ролл с камчатским крабом, ролл в стружке тунца, суши с лососем, суши с тунцом, спайси угорь</p>
     			</div>
     		</div>
 
     		<p>Суши</p>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Лосось</p>
@@ -734,7 +854,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Тунец</p>
@@ -744,7 +864,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Креветка</p>
@@ -754,7 +874,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Краб</p>
@@ -766,7 +886,7 @@
     		<p>Суши спайси</p>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Лосось</p>
@@ -776,7 +896,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Тунец</p>
@@ -786,7 +906,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Креветка</p>
@@ -796,7 +916,7 @@
     		</div>
 
     		<div>
-    			<img src="img/cutlet.png"/>
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Краб</p>
@@ -807,82 +927,89 @@
 
     		<p>Вок и поке</p>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Говядина в соусе из черного перца</p>
     				<p class="weight">325г</p>
     				<p class="price">750</p>
+    				<p class="description">Мини стейки из говяжьей вырезки, обжаренные с луком порей, брокколи, попущенные в соусе из черного перца, подаются с картофельным пюре, зеленым луком и миксом из кунжутных семечек</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Вок с курицей</p>
     				<p class="weight">360г</p>
     				<p class="price">600</p>
+    				<p class="description">Лапша с курицей, овощами в соусе терияки</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Вок с креветки</p>
     				<p class="weight">350г</p>
     				<p class="price">700</p>
+    				<p class="description">Лапша с креветками в соусе терияки и стружкой тунца</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Поке с лососем</p>
     				<p class="weight">250г</p>
     				<p class="price">450</p>
+    				<p class="description">Поке с японским рисом, лососемв соусе терияки, краснокочанной капустой и салатом чука</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/cutlet.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../cutlet.png"/>
 
     			<div>
     				<p class="name">Поке с тунцом</p>
     				<p class="weight">250г</p>
     				<p class="price">450</p>
+    				<p class="description">Поке с японским рисом, тунцом в соусе терияки, краснокочанной капустой и салатом чука</p>
     			</div>
     		</div>
 
     		<p>Хачапури и пироги</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Хачапури по Имеретински</p>
     				<p class="weight">450г</p>
     				<p class="price">450</p>
+    				<p class="description">Фирменный томатный соус, моцарелла, пармезан, розовые томаты, базилик</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Хачапури по Аджарски</p>
     				<p class="weight">350г</p>
     				<p class="price">400</p>
+    				<p class="description">Нежный сливочный соус, моцарелла, белые грибы, шампиньоны, вешенки, салат руккола и каперсы</p>
     			</div>
     		</div>
 
     		<p>Гарниры</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Картофельное пюре</p>
@@ -892,7 +1019,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Овощи гриль</p>
@@ -902,7 +1029,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Картофель фри</p>
@@ -913,791 +1040,865 @@
 
     		<p>Десерты</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чизкейк классический</p>
     				<p class="weight">120г</p>
     				<p class="price">350</p>
+    				<p class="description">Классический десерт из творожного сыра</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Эстерхази</p>
     				<p class="weight">100г</p>
     				<p class="price">350</p>
+    				<p class="description">Десерт из крема Патисьер, орехов и корицы</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Медовый торт</p>
     				<p class="weight">110г</p>
     				<p class="price">300</p>
+    				<p class="description">Торт из натурального меда, крема Патисьер и ванили</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Штрудель</p>
     				<p class="weight">220г</p>
     				<p class="price">350</p>
+    				<p class="description">Штрудель из яблок, груши и винограда, подается с мороженым и карамельным соусом</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Тирамису</p>
     				<p class="weight">105г</p>
     				<p class="price">350</p>
+    				<p class="description">Классический итальянский десерт из сыра Маскарпоне, печенья Савоярди</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Парфе с семенами чиа</p>
     				<p class="weight">210г</p>
     				<p class="price">350</p>
+    				<p class="description">Десерт, основанный на семенах чиа, кокосовом молоке, натуральном меде и греческом йогурте. Подается с бананово-слубничным смузи и ореховой гранолой</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Мороженное</p>
     				<p class="weight">50г</p>
     				<p class="price">100</p>
+    				<p class="description">Ванильное, клубничное, шоколадное</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Шоколадный мусс</p>
     				<p class="weight">150г</p>
     				<p class="price">300</p>
+    				<p class="description">Мусс из молочного шоколада с ванильным мороженным</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Бельгийская вафля с семифредо</p>
     				<p class="weight">150г</p>
     				<p class="price">350</p>
+    				<p class="description">Бельгийская вафля с фруктами и фисташковым семифредо</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Сникерс</p>
     				<p class="weight">180г</p>
     				<p class="price">300</p>
+    				<p class="description">Десерт с карамельным соусом, сливочным кремом и арахисом</p>
     			</div>
     		</div>
-		
-		</div>
 
-		<!--БАР-->
-		<div class="menu_list" id="bar">
-    		
-    		<p>Миксдринки</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+
+    		<!--БАР-->
+
+    		<p id="bar">Миксдринки</p>
+
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Виски Пепси</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Виски, Пепси</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Водка Тоник</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Водка, тоник</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Джин Тоник</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Джин, тоник</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Ганча Оранж</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Вермут Бьянко, апельсиновый сок</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Кампари Оранж</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Аперитив Американо, апельсиновый сок</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Ром Пепси</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Ром, Пепси</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Отвертка</p>
     				<p class="weight">200мл</p>
     				<p class="price">450</p>
+    				<p class="description">Водка, апельсиновый сок</p>
     			</div>
     		</div>
 
     		<p>Коктейли для благородных девиц</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Апероль шприц</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Апероль, игристое вино, минеральная вода, апельсин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Рафаэло</p>
     				<p class="weight">120мл</p>
     				<p class="price">600</p>
+    				<p class="description">Кокосовый ликер, сливочный ликер, ванильный сироп, кокосовая стружка</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Бальзаковский возраст</p>
     				<p class="weight">300мл</p>
     				<p class="price">750</p>
+    				<p class="description">Водка, ром, текила, джин, апельсиновый ликер, лимонный сок, сироп миндаль, вишневый сок, лимон</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Вкусный Джек</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Джек Дениел'с Олд №7, ванильный сироп, морс, сок лимона, малина, мята</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Мишки на севере</p>
     				<p class="weight">300мл</p>
     				<p class="price">600</p>
+    				<p class="description">Абсент, ликер Блю Кюрасао, сироп Гренадин, Фанта, мармелад</p>
     			</div>
     		</div>
 
     		<p>Пацанские коктейли</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Лонг Айленд Айс Ти</p>
     				<p class="weight">300мл</p>
     				<p class="price">750</p>
+    				<p class="description">Водка, ром светлый, джин, текила серебро, апельсиновый ликер, лимонный сок, Пепси, лимон</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Дабл Лонг Айленд Айс Ти</p>
     				<p class="weight">500мл</p>
     				<p class="price">1200</p>
+    				<p class="description">Водка, ром светлый, джин, текила серебро, апельсиновый ликер, лимонный сок, Пепси, лимон</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Белый Лонг</p>
     				<p class="weight">500мл</p>
     				<p class="price">1300</p>
+    				<p class="description">Водка, ром светлый, джин, текила серебро, апельсиновый ликер, лимонный сок, сахарный сироп, шампанское, лайм</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Энергия рома</p>
     				<p class="weight">400мл</p>
     				<p class="price">750</p>
+    				<p class="description">Абсент, ром светлый, сироп Гренадин, Адреналин Раш</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Медленный газ</p>
     				<p class="weight">500мл</p>
     				<p class="price">750</p>
+    				<p class="description">Абсент, водка, ликер Блю Кюрасао, ананасовый сок, Спрайт, лайм</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Олд фэшн</p>
     				<p class="weight">150мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джим Бим белый, биттер Ангостура, сахар коричневый, апельсин, вишня коктейльная, минеральная вода</p>
     			</div>
     		</div>
 
     		<p>Шоты</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Б-52</p>
     				<p class="weight">50мл</p>
     				<p class="price">400</p>
+    				<p class="description">Кофейный ликер, сливочный ликер, апельсиновый ликер</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Б-53</p>
     				<p class="weight">50мл</p>
     				<p class="price">400</p>
+    				<p class="description">Кофейный ликер, сливочный ликер, Абсент</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Камикадзе</p>
     				<p class="weight">50мл</p>
     				<p class="price">400</p>
+    				<p class="description">Водка, апельсиновый ликер, лимонный сок</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Б-52 XXL</p>
     				<p class="weight">120мл</p>
     				<p class="price">900</p>
+    				<p class="description">Кофейный ликер, сливочный ликер, апельсиновый ликер</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Унесенные ветром</p>
     				<p class="weight">150мл</p>
     				<p class="price">550</p>
+    				<p class="description">Кофейный ликер, апельсиновый ликер, ликер Блю Кюрасао, сливки 11%</p>
     			</div>
     		</div>
 
     		<p>Ромовые коктейли</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Зомби</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Ром светлый, ром темный, ликер Черри Бренди, ликер Априкот Бренди, апельсиновый сок, ананасовый сок, лайм</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Май Тай</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Ром светлый, ром темный, апельсиновый ликер, сироп миндаль, лимонный сок, ананасовый сок, ананас</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Пина Колада</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Ром светлый, кокосовое молоко, ананасовый сок, кокосовый сироп, взбитые сливки, кокосовая стружка, ананас, ликер Науни</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Мохито</p>
     				<p class="weight">300мл</p>
     				<p class="price">450</p>
+    				<p class="description">Ром светлый, сахарный сироп, лимонный сок, минеральная вода, мята, лайм</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
-    				<p class="name">Голубая лагуна</p>
+    				<p class="name">Голубой Оскар</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Ром светлый, ликер Блю Кюрасао, Спрайт, апельсин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Голубые Гавайи</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Ром светлый, ликер Блю Кюрасао, сироп кокос, сливки 11%, коктейльная вишня</p>
     			</div>
     		</div>
 
     		<p>Коктейли Barcelo</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Красный опасный</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Ron Barcelo Dorado, клюквенный морс, газированная вода, лимонный сок, сахарный сироп, долька грейпфрута</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Белый смелый</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Ron Barcelo Blanco, лимонный сок, сахарный сироп, газированная вода, лайм, мята</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Sunny в стакане</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Ron Barcelo Anejo, лимонный сок, апельсиновый сок, сахарный сироп, газированная вода, лайм, мята</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Все оBarcelи</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Ron Barcelo Anejo, Ginger Ale, лимонный сок, биттер, долька лайма, долька имбиря</p>
     			</div>
     		</div>
 
     		<p>Коктейли на основе водки</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Секс на пляже</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Водка, персиковый ликер, сок ананас, морс, апельсин, апельсиновый сок</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Космополитан</p>
     				<p class="weight">150мл</p>
     				<p class="price">400</p>
+    				<p class="description">Водка, апельсиновый ликер, морс, лимонный сок, апельсин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Черный русский</p>
     				<p class="weight">100мл</p>
     				<p class="price">550</p>
+    				<p class="description">Водка, кофейный ликер</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Белый русский</p>
     				<p class="weight">150мл</p>
     				<p class="price">550</p>
+    				<p class="description">Водка, кофейный ликер, сливки 11%</p>
     			</div>
     		</div>
 
     		<p>Beluga коктейли</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Moscow Mule</p>
     				<p class="weight">200мл</p>
     				<p class="price">700</p>
+    				<p class="description">BELUGA NOBLE, Ginger Ale, сок лайма, лайм</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Tiny</p>
     				<p class="weight">150мл</p>
     				<p class="price">700</p>
+    				<p class="description">BELUGA NOBLE, сухой вермут, ванильный вермут, Чили перец, Оливки</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Collins</p>
     				<p class="weight">200мл</p>
     				<p class="price">600</p>
+    				<p class="description">BELUGA NOBLE, сироп бузина, лимонный сок, содовая</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga 1900</p>
     				<p class="weight">200мл</p>
     				<p class="price">700</p>
+    				<p class="description">BELUGA NOBLE, Ruby Porto, сахар сироп, сок лимонный</p>
     			</div>
     		</div>
 
     		<p>Finlandia коктейли</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Fin Tonic</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Finlandia Grapefruit, тоник, долька грейпфрута, розмарин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Nordic Blush</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Finlandia Nordic Berries, вишневый сок, Спрайт, долька лайма, коктейльная вишня</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Nordic Sour</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Finlandia Nordic Berries, сок лимона, белок яйца, ангостура, цедра апельсина</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Finlandia Redberry</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Finlandia Redberry, лимонад(Спрайт), апельсиновый сок, тоник, долька лайма</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Finlandia Vodka Grapefruit Juice</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">Finlandia Vodka, грейпфрутовый сок, долька грейпфрута</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Northern Breeze</p>
     				<p class="weight">250мл</p>
     				<p class="price">550</p>
+    				<p class="description">Finlandia Vodka, грейпфрутовый сок, Джинджер Эль, лимонный сок, сахарный сироп, мята, дольки огурца</p>
     			</div>
     		</div>
 
     		<p>Beluga Hunting</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Basil Fresh</p>
     				<p class="weight">250мл</p>
     				<p class="price">500</p>
+    				<p class="description">BELUGA HUNTING HERBAL, сироп сахарный, лимон, сок лимона, базилик, имбирный сок, содовая</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Summer Spritz</p>
     				<p class="weight">250мл</p>
     				<p class="price">750</p>
+    				<p class="description">BELUGA HUNTING BERRY, игристое вино, грейпфрут сок, цедра апельсина</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Easy Fizzy</p>
     				<p class="weight">1л</p>
     				<p class="price">2200</p>
+    				<p class="description">BELUGA HUNTING HERBAL, сироп сахарный, лимон, сок лимона, базилик, имбирный сок, содовая</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Apple cloud</p>
     				<p class="weight">150мл</p>
     				<p class="price">600</p>
+    				<p class="description">BELUGA HUNTING BERRY, черносмородиновый ликер, сок яблоко, яблоко</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Easy Fizzy Berry</p>
     				<p class="weight">1л</p>
     				<p class="price">2200</p>
+    				<p class="description">BELUGA HUNTING BERRY, сироп сахарный, лимон, сок лимона, сезонные ягоды, тоник</p>
     			</div>
     		</div>
 
     		<p>Коктейли на основе джина</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Пасадена</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джин, дынный ликер, сироп маракуйя, ананасовый сок, апельсиновый сок, лимонный сок, карамбола</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Сингапурский Слинг</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джин, ликер Черри Бренди, апельсиновый ликер, биттер Ангостура, сироп Гренадин, ананасовый сок, апельсиновый сок, лимонный сок, яблоко</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Негрони</p>
     				<p class="weight">150мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джин, вермут Россо, Кампари, апельсин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Caribaldi Sbagliato</p>
     				<p class="weight">250мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джин, Кампари, апельсиновый сок, игристое вино</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gin Mule</p>
     				<p class="weight">250мл</p>
     				<p class="price">650</p>
+    				<p class="description">Джин, лайм-джус, Джинджер эль, огурец</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Cucumber Lemonade</p>
     				<p class="weight">200мл</p>
     				<p class="price">500</p>
+    				<p class="description">Джин, лемон-джус, сахарный сироп, содовая </p>
     			</div>
     		</div>
 
     		<p>Коктейли на основе текилы</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Текила Бум</p>
     				<p class="weight">130мл</p>
     				<p class="price">450</p>
+    				<p class="description">Текила серебро, Спрайт</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Текила Санрайз</p>
     				<p class="weight">300мл</p>
     				<p class="price">550</p>
+    				<p class="description">Текила серебро, апельсиновый сок, сироп Гренадин, апельсин</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Cocada</p>
     				<p class="weight">250мл</p>
     				<p class="price">650</p>
+    				<p class="description">Текила, лайм-джус, кокосовые сливки, ананасовый сок, биттер Ангостура</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">TNT</p>
     				<p class="weight">200мл</p>
     				<p class="price">550</p>
+    				<p class="description">Текила, содовая, тоник, апельсиновый биттер</p>
     			</div>
     		</div>
 
     		<p>Adrenaline Rush коктейли</p>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Adrenaline Rush Водка</p>
     				<p class="weight">300мл</p>
     				<p class="price">500</p>
+    				<p class="description">Водка, Адреналин Раш</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Adrenaline Rush Виски</p>
     				<p class="weight">300мл</p>
     				<p class="price">650</p>
+    				<p class="description">Виски, Адреналин Раш</p>
     			</div>
     		</div>
 
-    		<div>
-    			<img src="img/fish.png"/>
+    		<div onclick="new Descript().d.call(this)">
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Adrenaline Rush Егермейстер</p>
     				<p class="weight">300мл</p>
     				<p class="price">700</p>
+    				<p class="description">Егермайстер, Адреналин Раш</p>
     			</div>
     		</div>
 
     		<p>Белые вина</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Sauvignon Blanc Vina Tarapaca</p>
@@ -1707,7 +1908,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Pinot Grigio Sant'Orsolo</p>
@@ -1717,7 +1918,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Riesling Peter Mertes</p>
@@ -1727,7 +1928,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Sauvignon Blanc Marisco Vineyards</p>
@@ -1737,7 +1938,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Шато Тамань Select</p>
@@ -1749,7 +1950,7 @@
     		<p>Красные вина</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chianti Want Orsola</p>
@@ -1759,7 +1960,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chris Pinot Noir</p>
@@ -1769,7 +1970,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Cabernet Sauvignon Vina Tarapaca</p>
@@ -1779,7 +1980,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Shiraz Cambridge Crossing</p>
@@ -1789,7 +1990,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Шато Тамань Select</p>
@@ -1801,7 +2002,7 @@
     		<p>Игристые вина</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Lambrusco Bianco Abbazia</p>
@@ -1811,7 +2012,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Prosecco Spumante Abbazia</p>
@@ -1821,7 +2022,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chandon Delice</p>
@@ -1831,7 +2032,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chandon Brut</p>
@@ -1841,7 +2042,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chandon Brut Rose</p>
@@ -1851,7 +2052,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chandon Brut</p>
@@ -1861,7 +2062,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Chandon Rose</p>
@@ -1873,29 +2074,31 @@
     		<p>Шампанское</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Duval-Leroy Brut</p>
     				<p class="weight">750мл</p>
     				<p class="price">11000</p>
+
     			</div>
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Moet&Chandon</p>
     				<p class="weight">750мл</p>
     				<p class="price">12000</p>
+
     			</div>
     		</div>
 
     		<p>Вина по бокалам</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Lambrusco Bianco Abbazia</p>
@@ -1905,7 +2108,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Ionos Cavino Белое</p>
@@ -1915,7 +2118,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Ionos Cavino Красное</p>
@@ -1927,7 +2130,7 @@
     		<p>Портвейн</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Martinez Fine Ruby</p>
@@ -1937,7 +2140,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Martinez Fine White</p>
@@ -1949,7 +2152,7 @@
     		<p>Вермут</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gancia</p>
@@ -1961,7 +2164,7 @@
     		<p>Джин</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gordon's</p>
@@ -1971,7 +2174,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gordon's Pink</p>
@@ -1981,7 +2184,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gin "Hendreck's"</p>
@@ -1991,7 +2194,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gin Green Baboon"</p>
@@ -2001,7 +2204,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gin Roku</p>
@@ -2013,7 +2216,7 @@
     		<p>Водка Beluga</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Gold Line</p>
@@ -2023,7 +2226,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Noble Night</p>
@@ -2033,7 +2236,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beluga Noble</p>
@@ -2045,7 +2248,7 @@
     		<p>Водка</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Finlandia</p>
@@ -2055,7 +2258,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Хаски</p>
@@ -2065,7 +2268,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Белая березка</p>
@@ -2075,7 +2278,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Белая березка Золотая</p>
@@ -2085,7 +2288,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Siberian Express</p>
@@ -2097,7 +2300,7 @@
     		<p>Американский виски</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Bulleit Bourbon</p>
@@ -2107,7 +2310,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Bulleit Rye</p>
@@ -2117,7 +2320,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Jack Daniel's</p>
@@ -2129,7 +2332,7 @@
     		<p>Шотландский виски</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Johnnie Walker Red</p>
@@ -2139,7 +2342,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Johnnie Walker Black</p>
@@ -2149,7 +2352,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Johnnie Walker Gold Reserve</p>
@@ -2159,7 +2362,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Johnnie Walker Blue</p>
@@ -2169,27 +2372,29 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Glen Eagles</p>
     				<p class="weight">40мл</p>
     				<p class="price">350</p>
+    	
     			</div>
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Singleton 12YO</p>
     				<p class="weight">40мл</p>
     				<p class="price">800</p>
+    	
     			</div>
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Talisker 10</p>
@@ -2199,7 +2404,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Lagavulin 16</p>
@@ -2211,7 +2416,7 @@
     		<p>Коньяк</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hennessy V.S.</p>
@@ -2221,7 +2426,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hennessy V.S.O.P.</p>
@@ -2231,7 +2436,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hennessy X.O.</p>
@@ -2243,7 +2448,7 @@
     		<p>Бренди</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Армянский коньяк 5 звезд</p>
@@ -2253,7 +2458,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Метаха</p>
@@ -2265,7 +2470,7 @@
     		<p>Настойки</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Absent</p>
@@ -2275,7 +2480,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Jagermeister</p>
@@ -2285,7 +2490,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Becherovka</p>
@@ -2297,7 +2502,7 @@
     		<p>Ром Captain Morgan</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Spiced Gold</p>
@@ -2307,7 +2512,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">White</p>
@@ -2317,7 +2522,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Black Spiced</p>
@@ -2327,7 +2532,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Old Monk</p>
@@ -2339,7 +2544,7 @@
     		<p>Ром Barcelo</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Blanco</p>
@@ -2349,7 +2554,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Anejo</p>
@@ -2359,7 +2564,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Gran Anejo</p>
@@ -2369,7 +2574,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Zacapa 23</p>
@@ -2381,7 +2586,7 @@
     		<p>Ликеры</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hierbas</p>
@@ -2391,7 +2596,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hierbas Rama</p>
@@ -2401,7 +2606,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Bailey's</p>
@@ -2411,7 +2616,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Southen Comfort</p>
@@ -2421,7 +2626,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Sambuca</p>
@@ -2431,19 +2636,19 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Malibu Caribbean</p>
     				<p class="weight">40мл</p>
-    				<p class="price">---------</p>
+    				<p class="price"></p>
     			</div>
     		</div>
 
     		<p>Текила</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Leyenda Del Milagro Silver</p>
@@ -2453,7 +2658,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Leyenda Del Milagro Reposado</p>
@@ -2463,7 +2668,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Leyenda Del Milagro Anejo</p>
@@ -2473,7 +2678,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Rooster Rojo Blanco</p>
@@ -2483,7 +2688,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Don Julio Blanco</p>
@@ -2495,7 +2700,7 @@
     		<p>Бочковое пиво</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Bud 0,3</p>
@@ -2504,7 +2709,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Bud 0,5</p>
@@ -2513,7 +2718,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hugarden 0,3</p>
@@ -2522,7 +2727,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Hugarden 0,5</p>
@@ -2533,7 +2738,7 @@
     		<p>Бутылочное пиво</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Beck's N/A 0,33</p>
@@ -2542,7 +2747,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Stella Artois 0,5</p>
@@ -2551,7 +2756,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Spaten Dunkel</p>
@@ -2560,7 +2765,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Corona Extra 0,33</p>
@@ -2571,7 +2776,7 @@
     		<p>Софт дринк</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Pepsi-Cola</p>
@@ -2581,7 +2786,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Pepsi-Cola Light</p>
@@ -2591,7 +2796,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">7 Up</p>
@@ -2601,7 +2806,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Mirinda</p>
@@ -2611,7 +2816,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Evervess Tonic</p>
@@ -2623,7 +2828,7 @@
     		<p>Минеральная вода</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Aqua Mineral non gas</p>
@@ -2633,7 +2838,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Aqua Mineral with gas</p>
@@ -2643,7 +2848,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Ferrarelly with gas</p>
@@ -2656,7 +2861,7 @@
     		<p>Энергетические напитки</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Adrenaline Rush</p>
@@ -2668,7 +2873,7 @@
     		<p>Соки "Я"</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Сок в ассортименте</p>
@@ -2680,7 +2885,7 @@
     		<p>Чай элитный</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Жасминовая жемчужина</p>
@@ -2690,7 +2895,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Женьшеневый улун</p>
@@ -2700,7 +2905,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Молочный улун</p>
@@ -2710,7 +2915,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чай с чебрецом</p>
@@ -2720,7 +2925,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чай с ромашкой</p>
@@ -2730,7 +2935,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Японская липа</p>
@@ -2740,7 +2945,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Пуэр Императорский</p>
@@ -2752,7 +2957,7 @@
     		<p>Чай листовой</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чай черный</p>
@@ -2762,7 +2967,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чай зеленый</p>
@@ -2772,7 +2977,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Чай фруктовый</p>
@@ -2784,7 +2989,7 @@
     		<p>Кофе</p>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Эспрессо Лунго</p>
@@ -2794,7 +2999,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Двойной эспрессо</p>
@@ -2804,7 +3009,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Капучино</p>
@@ -2814,7 +3019,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Американо</p>
@@ -2824,7 +3029,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Латте</p>
@@ -2834,7 +3039,7 @@
     		</div>
 
     		<div>
-    			<img src="img/fish.png"/>
+    			<img src="../fish.png"/>
 
     			<div>
     				<p class="name">Латте с сиропом</p>
@@ -2844,12 +3049,6 @@
     		</div>
 
     	</div>
-		<div class="menu_list" id="off-season">
-
-		</div>
     </div>
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>
